@@ -36,7 +36,7 @@ class EditarVacante extends Component
 
     public function mount(Vacante $vacante)
     {   
-        $this->vacante_id = $vacante->id; // si uso solo "id" como variable no va a funcionar esta reservada por liveware
+        $this->vacante_id = $vacante->id; // si uso solo "id" como variable no va a funcionar esta reservada por livewire
         $this->titulo = $vacante->titulo;
         $this->salario = $vacante->salario_id;
         $this->categoria = $vacante->categoria_id;
