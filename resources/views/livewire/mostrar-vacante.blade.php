@@ -43,5 +43,21 @@
                 </p>
             </div>
         @endguest
+
+        {{-- @can('create', App\Models\Vacante::class)
+            <p>Este es un reclutador</p>
+        @else
+            <p>Este es un dev</p>
+        @endcan --}}
+        
+        @auth
+            @cannot('create', App\Models\Vacante::class)
+                <livewire:postular-vacante :vacante="$vacante" />
+            @endcannot
+        @endauth
+        
+
+        
+
     </div>
 </div>
