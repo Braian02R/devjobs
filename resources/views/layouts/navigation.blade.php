@@ -11,16 +11,18 @@
                 </div>
 
                 @auth
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                            {{ __('Mis vacantes') }}
-                        </x-nav-link>
+                    @can('create', App\Models\Vacante::class)
+                        <!-- Navigation Links -->
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                                {{ __('Mis vacantes') }}
+                            </x-nav-link>
 
-                        <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                            {{ __('Crear Vacante') }}
-                        </x-nav-link>
-                    </div>
+                            <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                                {{ __('Crear Vacante') }}
+                            </x-nav-link>
+                        </div>  
+                    @endcan
                 @endauth
             </div>
 
