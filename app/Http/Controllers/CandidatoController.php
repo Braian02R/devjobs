@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vacante;
 use App\Models\Candidato;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,22 @@ class CandidatoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Vacante $vacante)
     {
-        //
+        //dd('candidatos');
+        //dd(auth()->user()->id);
+        //dd($vacante->user_id);
+
+        // foreach ($vacante->candidatos as $candidato) {
+        //     # code...
+        //     echo $candidato->user . '<br>';
+        // } 
+
+        $this->authorize('view', $vacante);
+
+        return view('candidatos.index', [
+            'vacante' => $vacante
+        ]);
     }
 
     /**
